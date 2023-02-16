@@ -1,15 +1,15 @@
 import os
 from collections import Counter
 
-# replace this with the path to the directory you want to search
-directory = '/Users/jenny/Devops/Medibank' 
+# replace the path to the directory you want to search
+directory = './' 
 strings = []
 
 for root, dir, files in os.walk(directory):
-    for filename in files:
-        if not filename.endswith('.txt'):
+    for file in files:
+        if not file.endswith('.txt'):
             continue
-        filepath = os.path.join(root, filename)
+        filepath = os.path.join(root, file)
         with open(filepath, 'r') as f:
             contents = f.read()
             words = contents.lower().split()
